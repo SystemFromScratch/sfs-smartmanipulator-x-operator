@@ -1,0 +1,249 @@
+# MkDocs configuration of the SmartManipulator-X Operator PC documentation
+# (SystemFromScratch® documentation style, same as the Robot PC documentation).
+#
+#   Preview:     python -m mkdocs serve
+#   Website:     python -m mkdocs build                (output: site/)
+#   PDF manual:  python tools/docs/build_manual.py     (settings: extra.manual)
+#   Figures:     python tools/docs/diagrams.py         (hero and diagrams)
+#
+# Dependencies: requirements-docs.txt. See docs/development.md.
+
+site_name: SmartManipulator-X Operator PC
+site_description: >-
+  Operator PC of SmartManipulator-X: MoveIt 2 motion planning and RViz2 for a BCN3D Moveo
+  arm, ROS 2 Jazzy in Docker, connected to the Robot PC over ROS 2 DDS.
+site_author: Anton Vynohradov
+site_url: https://systemfromscratch.github.io/sfs-smartmanipulator-x-operator/   # GitHub Pages path = repository name
+repo_url: https://github.com/SystemFromScratch/sfs-smartmanipulator-x-operator
+repo_name: SystemFromScratch/sfs-smartmanipulator-x-operator
+edit_uri: ""
+copyright: >-
+  Copyright &copy; 2026 Anton Vynohradov ·
+  <a href="https://systemfromscratch.com">SystemFromScratch®</a> ·
+  Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>
+
+docs_dir: docs
+site_dir: site
+strict: true
+
+nav:
+  - Home: index.md
+  - Guide:
+      - Overview: overview.md
+      - Getting Started: getting-started.md
+      - Planning in RViz2: rviz.md
+      - Development: development.md
+  - Operator PC:
+      - Architecture: architecture.md
+      - MoveIt 2 Configuration: moveit-config.md
+      - Docker Image and Compose: docker.md
+      - Network and DDS: network.md
+      - Troubleshooting: troubleshooting.md
+  - About:
+      - Author & Company: about.md
+      - License: LICENSE.md
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  logo: assets/images/brand/systemfromscratch-logo-on-dark.png
+  favicon: assets/images/brand/systemfromscratch-logo.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+extra:
+  generator: false
+  # Header download button (overrides/partials/header.html); CI builds the PDF
+  # into docs/downloads/ before deploying.
+  manual_pdf: downloads/SmartManipulator-X_Operator_PC_User_Manual.pdf
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AntonVynohradov
+      name: Anton Vynohradov on GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/vynohradov
+      name: Anton Vynohradov on LinkedIn
+    - icon: fontawesome/brands/orcid
+      link: https://orcid.org/0009-0005-6965-0911
+      name: Anton Vynohradov on ORCID
+    - icon: material/web
+      link: https://systemfromscratch.com
+      name: SystemFromScratch®
+
+  # ---------------------------------------------------------------- landing page
+  # Rendered by overrides/home.html. Story: hero -> the problem (3 problem->solution
+  # cards) -> what you get (6 linked cards) -> stats -> quick start (docs/index.md)
+  # -> SystemFromScratch® portfolio banner.
+  landing:
+    eyebrow: SmartManipulator-X · Operator PC
+    title: Motion planning
+    accent: for a ROS 2 robot arm
+    lead: >-
+      The Operator PC plans the motions of the SmartManipulator-X arm in MoveIt 2 and
+      shows them in RViz2. It runs ROS 2 Jazzy in Docker, uses the same robot model as
+      the Robot PC, and sends every trajectory over ROS 2 DDS — it never touches the
+      motor hardware.
+    hero_image: assets/images/hero-3d.svg
+    hero_alt: >-
+      Isometric scene: an operator workstation plans a motion in MoveIt 2 and RViz2,
+      the trajectory goes over ROS 2 DDS to the Robot PC, the joint states come back,
+      and a BCN3D Moveo arm follows the planned tool path
+    buttons:
+      - {text: Get started, link: getting-started/, style: primary}
+      - {text: View on GitHub, link: "https://github.com/SystemFromScratch/sfs-smartmanipulator-x-operator", style: outline}
+    features:
+      - {icon: layers, line1: ROS 2 Jazzy, line2: in Docker}
+      - {icon: wave, line1: MoveIt 2, line2: OMPL + pick_ik}
+      - {icon: monitor, line1: RViz2, line2: WSLg or X11}
+      - {icon: code, line1: Apache-2.0, line2: open source}
+    problem:
+      eyebrow: The problem
+      title: Plan on one computer, move on another
+      intro: >-
+        The Robot PC owns the USB link to the controller and runs ros2_control; it has
+        to stay lean and must not carry a 3D GUI. Motion planning and visualization need
+        MoveIt 2, RViz2 and OpenGL, and they must use exactly the same joints, limits and
+        controllers as the Robot PC — otherwise a plan that looks right on the screen is
+        rejected, or worse, executed differently on the arm. The Operator PC is a
+        separate computer and a separate image that joins the Robot PC over ROS 2 DDS,
+        like a second machine on the Ethernet.
+      cards:
+        - icon: lock
+          title: One robot model on both computers
+          text: >-
+            The image build takes the robot description and the Fast DDS profile straight
+            from the Robot PC repository (a Compose additional build context). Nothing is
+            copied by hand, so joint names, limits and transport settings cannot drift.
+          tags: [additional_contexts, URDF/Xacro, Fast DDS]
+        - icon: gauge
+          title: A 5-DOF arm in a 6-D planner
+          text: >-
+            The Moveo has five arm joints and cannot reach an arbitrary pose. pick_ik
+            solves for the tool position only (rotation_scale 0.0), so dragging the
+            interactive marker in RViz2 always finds a solution that OMPL can plan to.
+          tags: [pick_ik, OMPL, SRDF]
+        - icon: monitor
+          title: A 3D GUI in a container, on any desktop
+          text: >-
+            RViz2 runs inside the container and draws through WSLg on Windows 11 or X11
+            on a Linux desktop. Software OpenGL (llvmpipe) is the default, so it starts
+            on every host without a GPU setup.
+          tags: [WSLg, X11, llvmpipe]
+    offer:
+      eyebrow: What you get
+      title: A ready operator station for the arm
+      intro: >-
+        One Docker image, one ROS 2 package and two Compose services: move_group with
+        the MoveIt configuration of the Moveo, RViz2 with the MotionPlanning panel, and a
+        shell on the same network for the ROS 2 tools.
+      cards:
+        - {icon: monitor, title: Planning in RViz2, text: "Drag the gripper marker, plan with OMPL, execute on the Robot PC, use the named poses.", tags: [MotionPlanning, Plan & Execute], link: rviz/}
+        - {icon: layers, title: Architecture, text: "Nodes, topics and actions across the two computers, and what each side owns.", tags: [ROS 2 graph, Boundaries], link: architecture/}
+        - {icon: wave, title: MoveIt 2 configuration, text: "Planning groups, named states, kinematics, joint limits, controllers and the collision matrix.", tags: [SRDF, pick_ik, OMPL], link: moveit-config/}
+        - {icon: chip, title: Docker image and Compose, text: "The image, its build contexts, the services, the environment and the GUI setup on Windows and Linux.", tags: [Docker, WSLg], link: docker/}
+        - {icon: bus, title: Network and DDS, text: "smx_net, the domain ID, the UDP-only Fast DDS profile and the move to real Ethernet.", tags: [Fast DDS, smx_net], link: network/}
+        - {icon: check, title: Troubleshooting, text: "Discovery, display, execution and planning problems with their causes and fixes.", tags: [Checks, Fixes], link: troubleshooting/}
+    stats:
+      - {value: "5 + 1", label: arm joints + gripper}
+      - {value: "2", label: trajectory controllers over DDS}
+      - {value: "3", label: named arm poses}
+      - {value: "0", label: hardware connections}
+    portfolio:
+      title: Part of an open-source embedded portfolio
+      text: >-
+        SmartManipulator-X is developed by Anton Vynohradov under SystemFromScratch® —
+        embedded software and hardware built from the first schematic to certification.
+      buttons:
+        - {text: SystemFromScratch®, link: "https://systemfromscratch.com", style: primary}
+        - {text: About the author, link: about/, style: outline}
+    trademark: >-
+      SystemFromScratch® is a registered trademark. ROS is a trademark of Open Source
+      Robotics Foundation, Inc.; MoveIt is a trademark of PickNik Inc.; BCN3D is a
+      trademark of BCN3D Technologies. SmartManipulator-X is not affiliated with or
+      endorsed by them.
+
+  # ---------------------------------------------------------------- PDF manual
+  # Read by tools/docs/build_manual.py.
+  manual:
+    title: SmartManipulator-X
+    document_title: SmartManipulator-X Operator PC
+    subtitle: "Operator PC: MoveIt 2 and RViz2 in Docker"
+    output: build/manual/SmartManipulator-X_Operator_PC_User_Manual_v{version}.pdf
+    eyebrow: SmartManipulator-X · Operator PC
+    cover_image: assets/images/hero-3d.svg
+    appendices: [LICENSE.md]
+    unnumbered: [about.md]
+    web_only: [index.md]
+    keywords: robot arm, ROS 2, MoveIt 2, RViz2, motion planning, DDS, Docker, BCN3D Moveo
+    vendor_trademarks: >-
+      ROS is a trademark of Open Source Robotics Foundation, Inc. MoveIt is a trademark
+      of PickNik Inc. ROBOTIS, DYNAMIXEL and OpenMANIPULATOR are trademarks of ROBOTIS
+      Co., Ltd. SmartFusion2 is a trademark of Microchip Technology Inc. BCN3D is a
+      trademark of BCN3D Technologies. Docker is a trademark of Docker, Inc. Windows is a
+      trademark of Microsoft Corporation. SmartManipulator-X is not affiliated with or
+      endorsed by these companies.
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+hooks:
+  - tools/docs/hooks.py      # captioned figures from plain Markdown images
+
+plugins:
+  - search
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: ["."]
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg

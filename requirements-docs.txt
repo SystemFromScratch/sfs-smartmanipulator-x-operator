@@ -1,0 +1,22 @@
+# Documentation tools (website and PDF user manual), installed in the repository .venv.
+#
+# Windows (PowerShell):
+#   py -m venv .venv
+#   .\.venv\Scripts\python.exe -m pip install -r requirements-docs.txt
+#   (WeasyPrint needs Pango: MSYS2 "pacman -S mingw-w64-x86_64-pango")
+#
+# Linux:
+#   python3 -m venv .venv
+#   .venv/bin/python -m pip install -r requirements-docs.txt
+#   (WeasyPrint needs Pango: "apt install libpango-1.0-0 libpangoft2-1.0-0")
+#
+# Only for tools/docs/render_mermaid.py (regenerating diagrams): pip install playwright
+
+# MkDocs 2.0 removes the plugin and hook system used by the theme.
+mkdocs>=1.6,<2
+mkdocs-material>=9.5,<10
+pymdown-extensions>=10.7
+pyyaml>=6.0
+weasyprint>=62
+# tools/docs/diagrams.py: the hero illustration from the robot meshes (Pillow comes with WeasyPrint)
+numpy>=1.26

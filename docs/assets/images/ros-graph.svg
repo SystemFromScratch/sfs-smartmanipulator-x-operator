@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" width="1120" height="470" role="img" aria-label="ROS 2 graph of the Operator PC and the Robot PC">
+<title>ROS 2 graph of the Operator PC and the Robot PC</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5A6472"/></marker><marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0F8B9A"/></marker><marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E07A00"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker></defs>
+<rect x="0" y="0" width="1120" height="470" rx="12" fill="#FFFFFF"/>
+<rect x="20" y="20" width="410" height="430" rx="12" fill="#F2F5FA" stroke="#C9D3E0" stroke-width="1.5"/>
+<text x="225" y="48" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="15" font-weight="bold" fill="#0B2545" text-anchor="middle">Operator PC · 10.77.0.20</text>
+<rect x="690" y="20" width="410" height="430" rx="12" fill="#F2F5FA" stroke="#C9D3E0" stroke-width="1.5"/>
+<text x="895" y="48" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="15" font-weight="bold" fill="#0B2545" text-anchor="middle">Robot PC · 10.77.0.10</text>
+<rect x="450" y="20" width="220" height="430" rx="12" fill="#EAF2FD" stroke="#1E5AA8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="560" y="48" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="15" font-weight="bold" fill="#1E5AA8" text-anchor="middle">ROS 2 DDS</text>
+<text x="560" y="68" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="11" font-weight="normal" fill="#5A6472" text-anchor="middle">smx_net · ROS_DOMAIN_ID 42</text>
+<rect x="45" y="85" width="360" height="60" rx="8" fill="#FFFFFF" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="225.0" y="109" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">rviz2</text>
+<text x="225.0" y="131" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">MotionPlanning panel · RobotModel · TF</text>
+<rect x="45" y="200" width="360" height="120" rx="8" fill="#FFFFFF" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="225.0" y="224" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">move_group</text>
+<text x="225.0" y="246" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">OMPL planner · pick_ik kinematics</text>
+<text x="225.0" y="264" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">planning scene monitor</text>
+<text x="225.0" y="282" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">MoveItSimpleControllerManager</text>
+<rect x="45" y="375" width="360" height="50" rx="8" fill="#FFF7EC" stroke="#E07A00" stroke-width="1.6"/>
+<text x="225.0" y="399" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">smartmanipulator_x_moveit_config</text>
+<rect x="715" y="85" width="360" height="60" rx="8" fill="#FFFFFF" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="895.0" y="109" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">robot_state_publisher</text>
+<text x="895.0" y="131" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">/robot_description · /tf</text>
+<rect x="715" y="180" width="360" height="60" rx="8" fill="#FFFFFF" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="895.0" y="204" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">joint_state_broadcaster</text>
+<text x="895.0" y="226" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">/joint_states</text>
+<rect x="715" y="275" width="360" height="150" rx="8" fill="#FFFFFF" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="895.0" y="299" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">ros2_control_node</text>
+<text x="895.0" y="321" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">arm_controller: j1_base … j5_wrist</text>
+<text x="895.0" y="339" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">gripper_controller: gripper</text>
+<text x="895.0" y="357" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">hardware: mock now,</text>
+<text x="895.0" y="375" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">DYNAMIXEL bus later</text>
+<line x1="225" y1="145" x2="225" y2="200" stroke="#0F8B9A" stroke-width="1.6" marker-end="url(#arrow-teal)"/>
+<text x="235" y="177" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#0F8B9A" text-anchor="start">goal · Plan &amp; Execute</text>
+<line x1="225" y1="375" x2="225" y2="320" stroke="#5A6472" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="235" y="356" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="start">SRDF · kinematics · limits</text>
+<line x1="715" y1="115" x2="405" y2="115" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arrow-green)"/>
+<text x="560" y="108" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="normal" fill="#2E7D32" text-anchor="middle">/tf</text>
+<line x1="715" y1="210" x2="405" y2="230" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arrow-green)"/>
+<text x="560" y="210" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="normal" fill="#2E7D32" text-anchor="middle">/joint_states</text>
+<line x1="405" y1="280" x2="715" y2="310" stroke="#E07A00" stroke-width="1.6" marker-end="url(#arrow-orange)"/>
+<text x="560" y="284" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="normal" fill="#E07A00" text-anchor="middle">arm_controller/</text>
+<text x="560" y="322" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="normal" fill="#E07A00" text-anchor="middle">follow_joint_trajectory</text>
+<line x1="405" y1="305" x2="715" y2="385" stroke="#E07A00" stroke-width="1.6" marker-end="url(#arrow-orange)"/>
+<text x="560" y="368" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="normal" fill="#E07A00" text-anchor="middle">gripper_controller/</text>
+<text x="560" y="400" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="normal" fill="#E07A00" text-anchor="middle">follow_joint_trajectory</text>
+<text x="560" y="436" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="11" font-weight="normal" fill="#5A6472" text-anchor="middle">FollowJointTrajectory actions</text>
+</svg>

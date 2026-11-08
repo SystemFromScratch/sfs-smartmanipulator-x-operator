@@ -1,0 +1,57 @@
+name: Build and Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # tags and commit for the version on the PDF cover
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0
+          pip install -r requirements-docs.txt
+
+      - name: Build PDF manual
+        env:
+          NO_MKDOCS_2_WARNING: "1"
+        run: |
+          # Published with the site as /downloads/SmartManipulator-X_Operator_PC_User_Manual.pdf
+          python tools/docs/build_manual.py --output docs/downloads/SmartManipulator-X_Operator_PC_User_Manual.pdf
+
+      - name: Upload PDF manual
+        uses: actions/upload-artifact@v4
+        with:
+          name: SmartManipulator-X-Operator-PC-User-Manual
+          path: docs/downloads/SmartManipulator-X_Operator_PC_User_Manual.pdf
+
+      # actions/checkout leaves an HTTPS remote authenticated with GITHUB_TOKEN
+      # (contents: write), so gh-deploy can push to gh-pages without a deploy key.
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Deploying documentation
+        env:
+          NO_MKDOCS_2_WARNING: "1"
+        run: |
+          mkdocs gh-deploy --force

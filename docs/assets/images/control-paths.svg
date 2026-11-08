@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 275" width="1000" height="275" role="img" aria-label="Control paths: real robot, mock hardware and simulation behind the same MoveIt configuration">
+<title>Control paths: real robot, mock hardware and simulation behind the same MoveIt configuration</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5A6472"/></marker><marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0F8B9A"/></marker><marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E07A00"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker></defs>
+<rect x="0" y="0" width="1000" height="275" rx="12" fill="#FFFFFF"/>
+<text x="30" y="56" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="start">Real robot</text>
+<text x="30" y="76" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="11" font-weight="normal" fill="#5A6472" text-anchor="start">after hardware verification</text>
+<rect x="190" y="30" width="120" height="55" rx="8" fill="#EAF2FD" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="250" y="63" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">MoveIt 2</text>
+<line x1="310" y1="57" x2="340" y2="57" stroke="#5A6472" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="340" y="30" width="135.0" height="55" rx="8" fill="#FFFFFF" stroke="#5A6472" stroke-width="1.6"/>
+<text x="407.5" y="62" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#0B2545" text-anchor="middle">ROS 2 DDS</text>
+<line x1="475.0" y1="57" x2="505.0" y2="57" stroke="#5A6472" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="505.0" y="30" width="135.0" height="55" rx="8" fill="#FFFFFF" stroke="#5A6472" stroke-width="1.6"/>
+<text x="572.5" y="62" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#0B2545" text-anchor="middle">Robot PC: ros2_control</text>
+<line x1="640.0" y1="57" x2="670.0" y2="57" stroke="#5A6472" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="670.0" y="30" width="135.0" height="55" rx="8" fill="#FFFFFF" stroke="#5A6472" stroke-width="1.6"/>
+<text x="737.5" y="62" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#0B2545" text-anchor="middle">USB · DYNAMIXEL</text>
+<line x1="805.0" y1="57" x2="835.0" y2="57" stroke="#5A6472" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="835.0" y="30" width="135.0" height="55" rx="8" fill="#FFFFFF" stroke="#5A6472" stroke-width="1.6"/>
+<text x="902.5" y="62" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#0B2545" text-anchor="middle">SmartFusion2</text>
+<text x="30" y="141" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="start">Mock</text>
+<text x="30" y="161" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="11" font-weight="normal" fill="#2E7D32" text-anchor="start">in use today</text>
+<rect x="190" y="115" width="120" height="55" rx="8" fill="#EAF2FD" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="250" y="148" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">MoveIt 2</text>
+<line x1="310" y1="142" x2="340" y2="142" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arrow-green)"/>
+<rect x="340" y="115" width="190.0" height="55" rx="8" fill="#FFFFFF" stroke="#2E7D32" stroke-width="1.6"/>
+<text x="435.0" y="147" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#0B2545" text-anchor="middle">ROS 2 DDS</text>
+<line x1="530.0" y1="142" x2="560.0" y2="142" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arrow-green)"/>
+<rect x="560.0" y="115" width="190.0" height="55" rx="8" fill="#FFFFFF" stroke="#2E7D32" stroke-width="1.6"/>
+<text x="655.0" y="147" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#0B2545" text-anchor="middle">Robot PC: ros2_control</text>
+<line x1="750.0" y1="142" x2="780.0" y2="142" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arrow-green)"/>
+<rect x="780.0" y="115" width="190.0" height="55" rx="8" fill="#FFFFFF" stroke="#2E7D32" stroke-width="1.6"/>
+<text x="875.0" y="147" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#0B2545" text-anchor="middle">mock hardware</text>
+<text x="30" y="226" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="start">Simulation</text>
+<text x="30" y="246" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="11" font-weight="normal" fill="#E07A00" text-anchor="start">planned</text>
+<rect x="190" y="200" width="120" height="55" rx="8" fill="#EAF2FD" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="250" y="233" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">MoveIt 2</text>
+<line x1="310" y1="227" x2="340" y2="227" stroke="#E07A00" stroke-width="1.6" marker-end="url(#arrow-orange)"/>
+<rect x="340" y="200" width="300.0" height="55" rx="8" fill="#FFFFFF" stroke="#E07A00" stroke-width="1.6"/>
+<text x="490.0" y="232" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#0B2545" text-anchor="middle">Gazebo ros2_control</text>
+<line x1="640.0" y1="227" x2="670.0" y2="227" stroke="#E07A00" stroke-width="1.6" marker-end="url(#arrow-orange)"/>
+<rect x="670.0" y="200" width="300.0" height="55" rx="8" fill="#FFFFFF" stroke="#E07A00" stroke-width="1.6"/>
+<text x="820.0" y="232" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#0B2545" text-anchor="middle">simulated Moveo joints</text>
+</svg>

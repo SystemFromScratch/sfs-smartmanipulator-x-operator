@@ -13,3 +13,9 @@ docker/.env
 .idea/
 .DS_Store
 Thumbs.db
+
+# Documentation tools and build output (PDF manual; CI writes docs/downloads/ before deploying)
+/.venv/
+/site/
+/build/
+/docs/downloads/

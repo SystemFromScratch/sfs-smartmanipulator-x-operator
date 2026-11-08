@@ -7,3 +7,12 @@
 **/log
 **/__pycache__
 docker/.env
+
+# Documentation and its tools: not part of the image
+.venv
+site
+docs
+overrides
+tools
+mkdocs.yml
+requirements-docs.txt

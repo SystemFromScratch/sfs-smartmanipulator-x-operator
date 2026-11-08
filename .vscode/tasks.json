@@ -1,0 +1,179 @@
+{
+    // Ctrl+Shift+B opens a picker with every task in the "build" group.
+    // No task is marked "isDefault", so the picker is always shown.
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Operator PC: Start (move_group + RViz2)",
+            "detail": "Build the image if needed and start move_group and RViz2; needs the Robot PC running (smx_net).",
+            "type": "process",
+            "command": "docker",
+            "args": [
+                "compose",
+                "-f",
+                "docker/docker-compose.yml",
+                "up",
+                "--build",
+                "operator_pc"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "always",
+                "clear": true
+            }
+        },
+        {
+            "label": "Operator PC: Stop",
+            "detail": "Stop and remove the Operator PC containers (smx_net belongs to the Robot PC).",
+            "type": "process",
+            "command": "docker",
+            "args": [
+                "compose",
+                "-f",
+                "docker/docker-compose.yml",
+                "down"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Operator PC: Rebuild and restart",
+            "detail": "Stop, rebuild the image and start the Operator PC again with fresh containers.",
+            "type": "process",
+            "command": "docker",
+            "args": [
+                "compose",
+                "-f",
+                "docker/docker-compose.yml",
+                "up",
+                "--build",
+                "--force-recreate",
+                "operator_pc"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "Operator PC: Stop",
+            "group": "build",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "always",
+                "clear": true
+            }
+        },
+        {
+            "label": "Operator PC: Build image",
+            "detail": "Build the Operator PC image without starting it.",
+            "type": "process",
+            "command": "docker",
+            "args": [
+                "compose",
+                "-f",
+                "docker/docker-compose.yml",
+                "build",
+                "operator_pc"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Operator PC: Rebuild image (no cache)",
+            "detail": "Full rebuild from scratch, pulling the base image again. Slow.",
+            "type": "process",
+            "command": "docker",
+            "args": [
+                "compose",
+                "-f",
+                "docker/docker-compose.yml",
+                "build",
+                "--no-cache",
+                "--pull",
+                "operator_pc"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Operator PC: Shell",
+            "detail": "Interactive shell on smx_net with the GUI setup (ros2 CLI, rviz2, glxgears).",
+            "type": "process",
+            "command": "docker",
+            "args": [
+                "compose",
+                "-f",
+                "docker/docker-compose.yml",
+                "run",
+                "--rm",
+                "shell"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "always",
+                "focus": true
+            }
+        },
+        {
+            "label": "Docs: Build PDF manual",
+            "detail": "Write the PDF user manual to build/manual/ (needs .venv with requirements-docs.txt).",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "windows": {
+                "command": "${workspaceFolder}/.venv/Scripts/python.exe"
+            },
+            "args": [
+                "tools/docs/build_manual.py"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "NO_MKDOCS_2_WARNING": "1"
+                }
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docs: Live preview",
+            "detail": "mkdocs serve at http://127.0.0.1:8000",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "windows": {
+                "command": "${workspaceFolder}/.venv/Scripts/python.exe"
+            },
+            "args": [
+                "-m",
+                "mkdocs",
+                "serve"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "NO_MKDOCS_2_WARNING": "1"
+                }
+            },
+            "isBackground": true,
+            "problemMatcher": []
+        }
+    ]
+}
