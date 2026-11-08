@@ -1,0 +1,16 @@
+# The Moveo has five arm joints, so it cannot reach an arbitrary 6-D pose.
+# pick_ik with rotation_scale 0.0 solves for the tool position only, which is
+# what the RViz interactive marker needs. Raise rotation_scale (e.g. 0.5) for
+# a best-effort orientation.
+arm:
+  kinematics_solver: pick_ik/PickIkPlugin
+  kinematics_solver_timeout: 0.05
+  kinematics_solver_attempts: 3
+  mode: global
+  position_scale: 1.0
+  rotation_scale: 0.0
+  position_threshold: 0.001
+  orientation_threshold: 0.01
+  cost_threshold: 0.001
+  minimal_displacement_weight: 0.0
+  gd_step_size: 0.0001

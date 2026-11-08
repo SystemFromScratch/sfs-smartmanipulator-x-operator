@@ -1,0 +1,9 @@
+.git
+.github
+.vscode
+.idea
+**/build
+**/install
+**/log
+**/__pycache__
+docker/.env

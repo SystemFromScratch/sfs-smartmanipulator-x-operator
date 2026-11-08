@@ -1,0 +1,75 @@
+name: smartmanipulator-x-operator
+
+# Operator PC: MoveIt 2 (move_group) and RViz2.
+#
+# It joins smx_net, the Docker network created by the Robot PC repository
+# (docker compose -f docker/docker-compose.yml up robot_pc there first), and
+# reaches the Robot PC through ROS 2 DDS as it would over Ethernet.
+#
+#   docker compose -f docker/docker-compose.yml up --build operator_pc
+#
+# The GUI goes to WSLg (Windows 11 / Docker Desktop with the WSL 2 backend).
+# On a Linux desktop, set the SMX_X11_* values from docker/env.example.
+
+x-ros-env: &ros-env
+  ROS_DOMAIN_ID: ${ROS_DOMAIN_ID:-42}
+  RMW_IMPLEMENTATION: rmw_fastrtps_cpp
+  ROS_AUTOMATIC_DISCOVERY_RANGE: SUBNET
+
+x-gui: &gui
+  environment:
+    <<: *ros-env
+    DISPLAY: ${SMX_DISPLAY:-:0}
+    WAYLAND_DISPLAY: ${SMX_WAYLAND_DISPLAY:-wayland-0}
+    XDG_RUNTIME_DIR: ${SMX_XDG_RUNTIME_DIR:-/mnt/wslg/runtime-dir}
+    PULSE_SERVER: ${SMX_PULSE_SERVER:-/mnt/wslg/PulseServer}
+    QT_QPA_PLATFORM: xcb
+    QT_X11_NO_MITSHM: "1"
+    # Software OpenGL works everywhere; set to 0 with a GPU path configured.
+    LIBGL_ALWAYS_SOFTWARE: ${SMX_LIBGL_ALWAYS_SOFTWARE:-1}
+  volumes:
+    - ${SMX_X11_DIR:-/run/desktop/mnt/host/wslg/.X11-unix}:/tmp/.X11-unix
+    - ${SMX_WSLG_DIR:-/run/desktop/mnt/host/wslg}:/mnt/wslg
+
+services:
+  operator_pc:
+    <<: *gui
+    image: ${SMX_OPERATOR_IMAGE:-smartmanipulator-x-operator:jazzy}
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      additional_contexts:
+        # Canonical robot description and DDS profile.
+        robot_pc_repo: ${SMX_ROBOT_PC_REPO:-../../SmartManipulator-X-Robot-PC}
+    hostname: operator-pc
+    working_dir: /ws
+    init: true
+    stop_signal: SIGINT
+    networks:
+      smx_net:
+        ipv4_address: ${SMX_OPERATOR_IP:-10.77.0.20}
+    command:
+      - ros2
+      - launch
+      - smartmanipulator_x_moveit_config
+      - operator.launch.py
+
+  # Shell with the same GUI and network setup (rviz2, ros2 CLI, glxgears).
+  shell:
+    <<: *gui
+    image: ${SMX_OPERATOR_IMAGE:-smartmanipulator-x-operator:jazzy}
+    profiles: [tools]
+    hostname: operator-shell
+    working_dir: /ws
+    init: true
+    networks:
+      - smx_net
+    stdin_open: true
+    tty: true
+    command: ["bash"]
+
+networks:
+  smx_net:
+    # Created by the Robot PC compose project.
+    name: smx_net
+    external: true

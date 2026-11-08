@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>smartmanipulator_x_moveit_config</name>
+  <version>0.1.0</version>
+  <description>MoveIt 2 and RViz2 configuration of the SmartManipulator-X Operator PC.</description>
+  <maintainer email="anton.vynohradovv@gmail.com">Anton Vynohradov</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>smartmanipulator_x_description</exec_depend>
+  <exec_depend>moveit_configs_utils</exec_depend>
+  <exec_depend>moveit_ros_move_group</exec_depend>
+  <exec_depend>moveit_ros_visualization</exec_depend>
+  <exec_depend>moveit_kinematics</exec_depend>
+  <exec_depend>moveit_planners_ompl</exec_depend>
+  <exec_depend>moveit_simple_controller_manager</exec_depend>
+  <exec_depend>pick_ik</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Semantic description of SmartManipulator-X for MoveIt 2.
+  Link and joint names come from smartmanipulator_x_description (Robot PC
+  repository, generated from the BCN3D Moveo CAD).
+
+  Collision pairs: adjacent links, and all parts of the gripper against each
+  other (gears, pivot arms and fingers touch by design). The convex-hull
+  collision meshes overlap nowhere else at the zero, "ready" and CAD assembly
+  poses (tools/cad/collide.py in the Robot PC repository).
+-->
+<robot name="smartmanipulator_x">
+
+  <group name="arm">
+    <chain base_link="base_link" tip_link="tool_link"/>
+  </group>
+
+  <!-- Only "gripper" is commanded; the other gripper joints mimic it. -->
+  <group name="gripper">
+    <joint name="gripper"/>
+  </group>
+
+  <group_state name="home" group="arm">
+    <joint name="j1_base" value="0"/>
+    <joint name="j2_shoulder" value="0"/>
+    <joint name="j3_elbow" value="0"/>
+    <joint name="j4_forearm_roll" value="0"/>
+    <joint name="j5_wrist" value="0"/>
+  </group_state>
+
+  <group_state name="ready" group="arm">
+    <joint name="j1_base" value="0"/>
+    <joint name="j2_shoulder" value="0.5"/>
+    <joint name="j3_elbow" value="0.8"/>
+    <joint name="j4_forearm_roll" value="0"/>
+    <joint name="j5_wrist" value="0.6"/>
+  </group_state>
+
+  <!-- Pose of the BCN3D CAD assembly. -->
+  <group_state name="cad_pose" group="arm">
+    <joint name="j1_base" value="0"/>
+    <joint name="j2_shoulder" value="0.7416"/>
+    <joint name="j3_elbow" value="0.4674"/>
+    <joint name="j4_forearm_roll" value="0.1426"/>
+    <joint name="j5_wrist" value="0.9151"/>
+  </group_state>
+
+  <group_state name="open" group="gripper">
+    <joint name="gripper" value="0.0"/>
+  </group_state>
+
+  <group_state name="closed" group="gripper">
+    <joint name="gripper" value="1.4"/>
+  </group_state>
+
+  <end_effector name="gripper" parent_link="link5" group="gripper" parent_group="arm"/>
+
+  <disable_collisions link1="base_link" link2="link1" reason="Adjacent"/>
+  <disable_collisions link1="link1" link2="link2" reason="Adjacent"/>
+  <disable_collisions link1="link2" link2="link3" reason="Adjacent"/>
+  <disable_collisions link1="link3" link2="link4" reason="Adjacent"/>
+  <disable_collisions link1="link4" link2="link5" reason="Adjacent"/>
+  <disable_collisions link1="link5" link2="servo_gear" reason="Adjacent"/>
+  <disable_collisions link1="link5" link2="idler_gear" reason="Adjacent"/>
+  <disable_collisions link1="link5" link2="pivot_right" reason="Adjacent"/>
+  <disable_collisions link1="link5" link2="pivot_left" reason="Adjacent"/>
+  <disable_collisions link1="link5" link2="finger_right" reason="Adjacent"/>
+  <disable_collisions link1="link5" link2="finger_left" reason="Adjacent"/>
+  <disable_collisions link1="servo_gear" link2="idler_gear" reason="Never"/>
+  <disable_collisions link1="servo_gear" link2="pivot_right" reason="Never"/>
+  <disable_collisions link1="servo_gear" link2="pivot_left" reason="Never"/>
+  <disable_collisions link1="servo_gear" link2="finger_right" reason="Never"/>
+  <disable_collisions link1="servo_gear" link2="finger_left" reason="Never"/>
+  <disable_collisions link1="idler_gear" link2="pivot_right" reason="Never"/>
+  <disable_collisions link1="idler_gear" link2="pivot_left" reason="Never"/>
+  <disable_collisions link1="idler_gear" link2="finger_right" reason="Never"/>
+  <disable_collisions link1="idler_gear" link2="finger_left" reason="Never"/>
+  <disable_collisions link1="pivot_right" link2="pivot_left" reason="Never"/>
+  <disable_collisions link1="pivot_right" link2="finger_right" reason="Never"/>
+  <disable_collisions link1="pivot_right" link2="finger_left" reason="Never"/>
+  <disable_collisions link1="pivot_left" link2="finger_right" reason="Never"/>
+  <disable_collisions link1="pivot_left" link2="finger_left" reason="Never"/>
+  <disable_collisions link1="finger_right" link2="finger_left" reason="Never"/>
+</robot>

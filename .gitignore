@@ -1,0 +1,15 @@
+# ROS 2 / colcon
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+__pycache__/
+
+# Local Compose overrides (template: docker/env.example)
+docker/.env
+
+# Editor and operating system files
+.vscode/*
+!.vscode/tasks.json
+.idea/
+.DS_Store
+Thumbs.db
