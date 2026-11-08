@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" width="1000" height="330" role="img" aria-label="Build contexts of the Operator PC image">
+<title>Build contexts of the Operator PC image</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5A6472"/></marker><marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0F8B9A"/></marker><marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E07A00"/></marker><marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker></defs>
+<rect x="0" y="0" width="1000" height="330" rx="12" fill="#FFFFFF"/>
+<rect x="20" y="30" width="330" height="120" rx="8" fill="#FFFFFF" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="185.0" y="54" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">Operator PC repository</text>
+<text x="185.0" y="76" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">context: ..</text>
+<text x="185.0" y="94" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">docker/Dockerfile</text>
+<text x="185.0" y="112" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">ros2_ws/src (MoveIt config)</text>
+<text x="185.0" y="130" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">docker/entrypoint.sh</text>
+<rect x="20" y="180" width="330" height="120" rx="8" fill="#FFFFFF" stroke="#0F8B9A" stroke-width="1.6"/>
+<text x="185.0" y="204" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">Robot PC repository</text>
+<text x="185.0" y="226" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">additional context: robot_pc_repo</text>
+<text x="185.0" y="244" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">smartmanipulator_x_description</text>
+<text x="185.0" y="262" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">docker/dds/fastdds_udp.xml</text>
+<rect x="420" y="30" width="220" height="270" rx="8" fill="#F2F5FA" stroke="#0B2545" stroke-width="1.6"/>
+<text x="530.0" y="54" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">ros:jazzy-ros-base</text>
+<text x="530.0" y="76" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">+ ros-jazzy-moveit</text>
+<text x="530.0" y="94" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">+ ros-jazzy-pick-ik</text>
+<text x="530.0" y="112" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">+ ros-jazzy-rviz2</text>
+<text x="530.0" y="130" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">+ xacro, urdf</text>
+<text x="530.0" y="148" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">+ ros2controlcli</text>
+<text x="530.0" y="166" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">+ control-msgs</text>
+<text x="530.0" y="184" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">+ Mesa (llvmpipe)</text>
+<text x="530.0" y="202" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">colcon build</text>
+<text x="530.0" y="220" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">RelWithDebInfo</text>
+<rect x="710" y="30" width="270" height="120" rx="8" fill="#EAF2FD" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="845.0" y="54" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">smartmanipulator-x-operator:jazzy</text>
+<text x="845.0" y="76" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">/ws/src/operator</text>
+<text x="845.0" y="94" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">/ws/src/smartmanipulator_x_description</text>
+<text x="845.0" y="112" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">/ws/install</text>
+<rect x="710" y="180" width="270" height="120" rx="8" fill="#EAF2FD" stroke="#1E5AA8" stroke-width="1.6"/>
+<text x="845.0" y="204" font-family="'JetBrains Mono', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="bold" fill="#0B2545" text-anchor="middle">/etc/smx/fastdds_udp.xml</text>
+<text x="845.0" y="226" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">FASTDDS_DEFAULT_PROFILES_FILE</text>
+<text x="845.0" y="244" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">UDPv4 only, no shared memory</text>
+<text x="845.0" y="262" font-family="Inter, 'Segoe UI', 'DejaVu Sans', Arial, sans-serif" font-size="12" font-weight="normal" fill="#5A6472" text-anchor="middle">same file as the Robot PC</text>
+<line x1="350" y1="90" x2="420" y2="120" stroke="#5A6472" stroke-width="1.6" marker-end="url(#arrow)"/>
+<line x1="350" y1="240" x2="420" y2="200" stroke="#0F8B9A" stroke-width="1.6" marker-end="url(#arrow-teal)"/>
+<line x1="640" y1="110" x2="710" y2="90" stroke="#1E5AA8" stroke-width="1.6" marker-end="url(#arrow)"/>
+<line x1="640" y1="210" x2="710" y2="240" stroke="#1E5AA8" stroke-width="1.6" marker-end="url(#arrow)"/>
+</svg>
