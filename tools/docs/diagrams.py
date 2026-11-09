@@ -11,7 +11,7 @@
 #              Robot PC repository (SMX_ROBOT_PC_REPO, default: next to this one).
 #
 # Author:      Anton Vynohradov
-# Email:       avynohradov@systemfromscratch.com
+# Email:       contact@systemfromscratch.com
 # License:     Apache License 2.0
 # Copyright (c) 2026 Anton Vynohradov
 #
